@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream/15 text-ink-900 antialiased;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid #D5522A;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #FBD9C6;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
