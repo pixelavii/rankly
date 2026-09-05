@@ -33,8 +33,9 @@ export default function CategoryPage() {
         <CategoryHeader category={category} />
 
         <CurrentHighestBid
+          category={category}
           amount={highestBid}
-          onPlaceBid={() => setModalOpen(true)}
+          // onPlaceBid={() => setModalOpen(true)}
         />
 
         <div>
@@ -55,12 +56,12 @@ export default function CategoryPage() {
         </div>
       </div>
 
-      <BidModal
+      {/* <BidModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         categoryName={category.name}
         minBid={highestBid}
-      />
+      /> */}
     </Layout>
   );
 }

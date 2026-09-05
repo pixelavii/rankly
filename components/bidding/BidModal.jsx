@@ -13,7 +13,7 @@ export default function BidModal({ isOpen, onClose, categoryName, minBid }) {
         Current highest bid in {categoryName}:{" "}
         <span className="font-semibold text-ink-900">₹{minBid}</span>
       </p>
-      <BidForm categoryName={categoryName} minBid={minBid} onSubmit={handleSubmit} />
+      {/* <BidForm categoryName={categoryName} minBid={minBid} onSubmit={handleSubmit} /> */}
     </Modal>
   );
 }

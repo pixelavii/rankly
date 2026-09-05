@@ -23,8 +23,10 @@ export default function CategoryHeader({ category }) {
       <div className="flex items-center gap-3">
         <CategoryIcon initials={category.initials} size="lg" />
         <div>
-          <h1 className="font-display text-2xl font-extrabold text-ink-900">{category.name}</h1>
-          <p className="text-sm text-ink-500 mt-0.5">
+          <h1 className="font-display text-2xl font-extrabold text-ink-900">
+            {category.name}
+          </h1>
+          <p className="text-xs md:text-sm text-ink-500 mt-0.5">
             Submit your profile and compete for a higher position.
           </p>
         </div>
