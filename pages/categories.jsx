@@ -22,7 +22,7 @@ export default function CategoriesPage({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/categories`, {
+  const res = await fetch(`https://rankly-zeta.vercel.app/api/categories`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
