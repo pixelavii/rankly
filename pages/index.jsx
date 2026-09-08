@@ -6,14 +6,27 @@ import HowItWorks from "../components/sections/HowItWorks";
 import CTASection from "../components/sections/CTASection";
 import { mockCategories, mockStats } from "../data/mockData";
 
-export default function HomePage() {
+export default function HomePage({ data }) {
   return (
     <Layout>
       <Hero />
-      <PopularCategories categories={mockCategories} />
+      <PopularCategories categories={data.categories} />
       <StatsSection stats={mockStats} />
       <HowItWorks />
       <CTASection />
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3000/api/categories`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  const data = await res.json();
+  return {
+    props: {
+      data: data || [],
+    },
+  };
 }

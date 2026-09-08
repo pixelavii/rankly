@@ -18,7 +18,7 @@ export default function PopularCategories({ categories }) {
           View all
         </Link>
       </div>
-      <CategoryGrid categories={categories.slice(0, 6)} />
+      <CategoryGrid categories={categories} />
     </section>
   );
 }

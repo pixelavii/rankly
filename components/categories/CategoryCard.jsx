@@ -2,7 +2,6 @@ import Link from "next/link";
 import CategoryIcon from "./CategoryIcon";
 
 export default function CategoryCard({ category }) {
-  console.log("This is the key:", category);
   return (
     <div className="group border border-ink-100 rounded-xl2 p-5 hover:border-rise-400 hover:shadow-card transition">
       <div className="flex items-start justify-between mb-4">
