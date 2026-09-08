@@ -18,15 +18,27 @@ export default function HomePage({ data }) {
   );
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/categories`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  const data = await res.json();
-  return {
-    props: {
-      data: data || [],
-    },
-  };
+export async function getStaticProps() {
+  try {
+    const res = await fetch(`http://localhost:3000/api/categories`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    const data = await res.json();
+    return {
+      props: {
+        data: data || [],
+      },
+      revalidate: 180,
+    };
+  } catch (error) {
+    console.error("Build-time fetch failed, using empty fallback:", error);
+    return {
+      props: {
+        products: [],
+        category: [],
+      },
+      revalidate: 60, // retry sooner since we have no data
+    };
+  }
 }
