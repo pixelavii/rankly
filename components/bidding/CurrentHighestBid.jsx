@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Moderator } from "../../lib/moderator";
-// import * as cheerio from "cheerio";
+import handlePayment from "../payment/handlePayment";
+import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
 
 export default function CurrentHighestBid({ amount, category }) {
   const [preview, setPreview] = useState(amount + 5);
   const [link, setLink] = useState("");
+  const [loading, setLoading] = useState(false);
+  const myId = uuidv4();
+  const router = useRouter();
 
   function step(delta) {
     setPreview((p) => Math.max(amount + 1, p + delta));
   }
 
+  useEffect(() => {
+    setPreview(amount + 5);
+  }, [amount]);
+
   async function Submission() {
-    const account = await Moderator(link, category, preview);
+    const account = await Moderator(link, category, preview, myId);
 
     if (!account) {
       alert("Invalid account link");
       return;
     }
+    setLoading(true);
 
-    console.log("This is the response:", data);
+    try {
+      await handlePayment(account);
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Something went wrong. Please try again.");
+    }
+    setLoading(false);
   }
 
   return (
@@ -84,10 +100,11 @@ export default function CurrentHighestBid({ amount, category }) {
         </div>
         <button
           onClick={Submission}
+          disabled={loading}
           type="submit"
           className="shrink-0 bg-coral-600 hover:bg-coral-700 text-white font-semibold text-sm rounded-full px-6 py-3 transition"
         >
-          Place Your Bid
+          {loading ? "Processing..." : "Place Your Bid"}
         </button>
       </div>
 

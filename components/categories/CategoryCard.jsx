@@ -2,10 +2,11 @@ import Link from "next/link";
 import CategoryIcon from "./CategoryIcon";
 
 export default function CategoryCard({ category }) {
+  console.log("This is the key:", category);
   return (
     <div className="group border border-ink-100 rounded-xl2 p-5 hover:border-rise-400 hover:shadow-card transition">
       <div className="flex items-start justify-between mb-4">
-        <CategoryIcon initials={category.initials} />
+        <CategoryIcon initials={`/logo/${category.name.toLowerCase()}.svg`} />
         <span className="text-xs text-ink-500 mt-1">
           {category.bidders} bidders
         </span>
@@ -13,7 +14,7 @@ export default function CategoryCard({ category }) {
 
       <h3 className="text-base font-semibold text-ink-900">{category.name}</h3>
       <p className="mt-1 text-sm text-ink-500 leading-relaxed">
-        {category.description}
+        {category.name} profile submissions
       </p>
 
       <div className="flex items-center justify-between mt-5 pt-4 border-t border-ink-100">
@@ -24,7 +25,7 @@ export default function CategoryCard({ category }) {
           </p>
         </div>
         <Link
-          href={`/category/${category.slug}`}
+          href={`/category/${category.name}`}
           className="text-sm font-semibold text-rise-600 group-hover:text-rise-700 flex items-center gap-1"
         >
           View Bids

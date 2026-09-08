@@ -57,9 +57,9 @@ export default function Header() {
           {mockCategories.slice(0, 7).map((cat) => (
             <Link
               key={cat.slug}
-              href={`/category/${cat.slug}`}
+              href={`/category/${cat.name}`}
               className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition ${
-                router.query.slug === cat.slug
+                router.query.slug === cat.name
                   ? "bg-ink-900 text-white border-ink-900"
                   : "border-ink-100 text-ink-700 hover:border-ink-300 bg-white/60"
               }`}

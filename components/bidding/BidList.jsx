@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import BidCard from "./BidCard";
-import ClaimBanner from "./ClaimBanner";
 import BidPagination from "./BidPagination";
 import EmptyState from "../common/EmptyState";
 import { BidCardSkeleton } from "../common/Skeleton";
 
 const PAGE_SIZE = 50;
 
-export default function BidList({
-  bidders,
-  categoryName,
-  loading = false,
-  onPlaceFirstBid,
-  onPlaceBid,
-}) {
+export default function BidList({ bidders, categoryName, Pagination }) {
+  const router = useRouter();
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const start = () => setLoading(true);
+    const done = () => setLoading(false);
+
+    router.events.on("routeChangeStart", start);
+    router.events.on("routeChangeComplete", done);
+    router.events.on("routeChangeError", done);
+
+    return () => {
+      router.events.off("routeChangeStart", start);
+      router.events.off("routeChangeComplete", done);
+      router.events.off("routeChangeError", done);
+    };
+  }, [router.events]);
+
+  function handlePageChange(newPage) {
+    router.push(
+      { pathname: router.pathname, query: { ...router.query, page: newPage } },
+      undefined,
+      { shallow: false }, // false so getServerSideProps actually re-runs
+    );
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   if (loading) {
     return (
@@ -37,9 +57,8 @@ export default function BidList({
     );
   }
 
-  const totalPages = Math.ceil(bidders.length / PAGE_SIZE);
-  const start = (page - 1) * PAGE_SIZE;
-  const visibleBidders = bidders.slice(start, start + PAGE_SIZE);
+  const start = (Pagination.page - 1) * Pagination.pageSize;
+  const visibleBidders = bidders;
 
   return (
     <div>
@@ -48,7 +67,11 @@ export default function BidList({
           const rank = start + i + 1;
           return (
             <div key={bidder.id}>
-              <BidCard bidder={bidder} rank={rank} categoryName={categoryName} />
+              <BidCard
+                bidder={bidder}
+                rank={rank}
+                categoryName={categoryName}
+              />
               {/* {rank === 2 && bidders[2] && (
                 <ClaimBanner
                   rank={2}
@@ -62,14 +85,11 @@ export default function BidList({
       </div>
 
       <BidPagination
-        currentPage={page}
-        totalPages={totalPages}
-        totalItems={bidders.length}
-        pageSize={PAGE_SIZE}
-        onPageChange={(p) => {
-          setPage(p);
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
+        currentPage={Pagination.page}
+        totalPages={Pagination.totalPages}
+        totalItems={Pagination.totalCount}
+        pageSize={Pagination.pageSize}
+        onPageChange={handlePageChange}
       />
     </div>
   );

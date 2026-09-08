@@ -2,7 +2,7 @@ export default function BidPagination({
   currentPage,
   totalPages,
   totalItems,
-  pageSize = 50,
+  pageSize,
   onPageChange,
 }) {
   if (totalPages <= 1) return null;
@@ -42,7 +42,7 @@ export default function BidPagination({
             >
               {page}
             </PageButton>
-          )
+          ),
         )}
         <PageButton
           disabled={currentPage === totalPages}
@@ -83,9 +83,7 @@ function PageButton({ children, active, disabled, onClick }) {
       disabled={disabled}
       aria-current={active ? "page" : undefined}
       className={`min-w-[2.25rem] h-9 px-2 rounded-lg text-sm font-medium transition disabled:opacity-40 disabled:cursor-not-allowed ${
-        active
-          ? "bg-rise-600 text-white"
-          : "text-ink-700 hover:bg-ink-100"
+        active ? "bg-rise-600 text-white" : "text-ink-700 hover:bg-ink-100"
       }`}
     >
       {children}
@@ -100,7 +98,11 @@ function getPageNumbers(current, total) {
   let last;
 
   for (let i = 1; i <= total; i++) {
-    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+    if (
+      i === 1 ||
+      i === total ||
+      (i >= current - delta && i <= current + delta)
+    ) {
       range.push(i);
     }
   }

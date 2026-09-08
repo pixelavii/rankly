@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const palette = [
   "bg-rise-100 text-rise-700",
   "bg-gold-50 text-gold-600",
@@ -15,7 +17,7 @@ function hashToIndex(str, mod) {
 }
 
 export default function Avatar({ username = "", size = "md" }) {
-  const initial = username.replace("@", "").charAt(0).toUpperCase() || "?";
+  const initial = username.toLowerCase() || "?";
   const colorClass = palette[hashToIndex(username, palette.length)];
 
   const sizes = {
@@ -25,11 +27,12 @@ export default function Avatar({ username = "", size = "md" }) {
   };
 
   return (
-    <div
+    <Image
+      width={50}
+      height={50}
+      src={`/logo/${initial}.svg`}
       className={`flex items-center justify-center rounded-full font-semibold shrink-0 ${colorClass} ${sizes[size]}`}
       aria-hidden="true"
-    >
-      {initial}
-    </div>
+    />
   );
 }

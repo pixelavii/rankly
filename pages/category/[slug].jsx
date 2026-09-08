@@ -1,19 +1,16 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../../components/layout/Layout";
 import CategoryHeader from "../../components/categories/CategoryHeader";
 import CurrentHighestBid from "../../components/bidding/CurrentHighestBid";
 import BidList from "../../components/bidding/BidList";
-import BidModal from "../../components/bidding/BidModal";
-import { mockCategories, mockBiddersByCategory } from "../../data/mockData";
+import { mockCategories } from "../../data/mockData";
 
-export default function CategoryPage() {
+export default function CategoryPage({ data }) {
   const router = useRouter();
   const { slug } = router.query;
-  const [modalOpen, setModalOpen] = useState(false);
 
-  const category = mockCategories.find((c) => c.slug === slug);
-  const bidders = slug ? mockBiddersByCategory[slug] || [] : [];
+  const category = mockCategories.find((c) => c.name === slug);
+  // const bidders = slug ? mockBiddersByCategory[slug] || [] : [];
 
   if (!category) {
     return (
@@ -25,18 +22,14 @@ export default function CategoryPage() {
     );
   }
 
-  const highestBid = bidders[0]?.bidAmount ?? 0;
+  const highestBid = data?.users[0]?.amount ?? 0;
 
   return (
     <Layout title={`${category.name} — Rankly`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-8">
         <CategoryHeader category={category} />
 
-        <CurrentHighestBid
-          category={category}
-          amount={highestBid}
-          // onPlaceBid={() => setModalOpen(true)}
-        />
+        <CurrentHighestBid category={category} amount={highestBid} />
 
         <div>
           <div className="flex items-center justify-between mb-4">
@@ -48,20 +41,30 @@ export default function CategoryPage() {
             </p>
           </div>
           <BidList
-            bidders={bidders}
+            bidders={data.users}
             categoryName={category.name}
-            onPlaceFirstBid={() => setModalOpen(true)}
-            onPlaceBid={() => setModalOpen(true)}
+            Pagination={data.pagination}
           />
         </div>
       </div>
-
-      {/* <BidModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        categoryName={category.name}
-        minBid={highestBid}
-      /> */}
     </Layout>
   );
+}
+
+export async function getServerSideProps({ params, query, req }) {
+  const { slug } = params;
+  const page = parseInt(query.page || "1", 10);
+  const res = await fetch(
+    `http://localhost:3000/api/get_user_by_category?category=${slug}&page=${page}`,
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    },
+  );
+  const data = await res.json();
+  return {
+    props: {
+      data: data || [],
+    },
+  };
 }
