@@ -1,6 +1,5 @@
 import Layout from "../components/layout/Layout";
 import CategoryGrid from "../components/categories/CategoryGrid";
-import { mockCategories } from "../data/mockData";
 
 export default function CategoriesPage({ data }) {
   return (

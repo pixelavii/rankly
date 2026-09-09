@@ -26,7 +26,7 @@ export default async function GetUsersByCategory (req, res) {
     }
 
     const from = (pageNumber - 1) * PAGE_SIZE
-    const to = from + PAGE_SIZE - 1 // .range() is inclusive on both ends
+    const to = from + PAGE_SIZE - 1
 
     const { data, error, count } = await supabase
       .from('Users')
@@ -37,11 +37,33 @@ export default async function GetUsersByCategory (req, res) {
 
     if (error) throw error
 
+    // Fetch click counts for just the users on this page. Pulling only
+    // user_id and counting occurrences in JS avoids an N+1 query
+    // (one count() call per user) — it's a single round trip either way.
+    const userIds = data.map(user => user.id)
+
+    const { data: ipRows, error: ipErr } = await supabase
+      .from('IP')
+      .select('user_id')
+      .in('user_id', userIds)
+
+    if (ipErr) throw ipErr
+
+    const clickCounts = {}
+    for (const row of ipRows) {
+      clickCounts[row.user_id] = (clickCounts[row.user_id] ?? 0) + 1
+    }
+
+    const usersWithClicks = data.map(user => ({
+      ...user,
+      clicks: clickCounts[user.id] ?? 0
+    }))
+
     const totalPages = Math.max(1, Math.ceil((count ?? 0) / PAGE_SIZE))
 
     return res.json({
       success: true,
-      users: data,
+      users: usersWithClicks,
       pagination: {
         page: pageNumber,
         pageSize: PAGE_SIZE,

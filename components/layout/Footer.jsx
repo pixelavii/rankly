@@ -5,16 +5,15 @@ const columns = [
     title: "Platform",
     links: [
       { label: "Categories", href: "/categories" },
-      { label: "How It Works", href: "/how-it-works" },
-      { label: "My Bids", href: "/my-bids" },
+      { label: "Rules", href: "/rules" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Contact", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "About", href: "/about" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
 ];
@@ -67,7 +66,9 @@ export default function Footer() {
 
         <div className="border-t border-ink-100 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-sm text-ink-500">
           <p>&copy; {new Date().getFullYear()} Rankly. All rights reserved.</p>
-          <p>Rankings reflect bid amount only. There are no winners or losers.</p>
+          <p>
+            Rankings reflect bid amount only. There are no winners or losers.
+          </p>
         </div>
       </div>
     </footer>

@@ -4,14 +4,13 @@ import PopularCategories from "../components/sections/PopularCategories";
 import StatsSection from "../components/sections/StatsSection";
 import HowItWorks from "../components/sections/HowItWorks";
 import CTASection from "../components/sections/CTASection";
-import { mockCategories, mockStats } from "../data/mockData";
 
 export default function HomePage({ data }) {
   return (
     <Layout>
-      <Hero />
+      <Hero categories={data.categories} />
       <PopularCategories categories={data.categories} />
-      <StatsSection stats={mockStats} />
+      <StatsSection stats={data} />
       <HowItWorks />
       <CTASection />
     </Layout>

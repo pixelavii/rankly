@@ -14,7 +14,7 @@ export default function CategoryPage({ data }) {
 
   if (!category) {
     return (
-      <Layout title="Category — Rankly">
+      <Layout user={data} title="Category — Rankly">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 text-center text-ink-500">
           {slug ? "Category not found." : ""}
         </div>

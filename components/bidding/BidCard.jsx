@@ -5,8 +5,21 @@ export default function BidCard({ bidder, rank, categoryName }) {
   const isTop = rank === 1;
   const isTopThree = rank <= 3;
 
+  async function ClickAnalytics(bidder) {
+    const userId = bidder.id;
+
+    fetch("/api/track_ip", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId }),
+    });
+
+    window.open(bidder.link, "_blank");
+  }
+
   return (
     <div
+      onClick={() => ClickAnalytics(bidder)}
       className={`flex items-center gap-4 sm:gap-5 rounded-2xl p-4 sm:p-5 transition ${
         isTop
           ? "bg-coral-50"
@@ -41,9 +54,9 @@ export default function BidCard({ bidder, rank, categoryName }) {
             href={bidder.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline text-coral-600 hover:text-coral-700 font-medium"
+            className="inline text-coral-300 hover:text-coral-700 font-medium"
           >
-            {bidder.clicks || 0} clicks
+            {bidder.clicks ?? 0} {bidder.clicks <= 1 ? "click" : "clicks"}
           </Link>
         </div>
       </div>

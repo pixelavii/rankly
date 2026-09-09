@@ -2,7 +2,11 @@ import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({ children, title = "Rankly \u2014 Ranked Profile Listings" }) {
+export default function Layout({
+  children,
+  title = "Rankly \u2014 Ranked Profile Listings",
+  user,
+}) {
   return (
     <>
       <Head>
@@ -13,7 +17,7 @@ export default function Layout({ children, title = "Rankly \u2014 Ranked Profile
         />
       </Head>
       <div className="min-h-screen flex flex-col">
-        <Header />
+        <Header user={user} />
         <main className="flex-1">{children}</main>
         <Footer />
       </div>
