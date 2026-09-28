@@ -55,7 +55,7 @@ export async function getServerSideProps({ params, query, req }) {
   const { slug } = params;
   const page = parseInt(query.page || "1", 10);
   const res = await fetch(
-    `http://localhost:3000/api/get_user_by_category?category=${slug}&page=${page}`,
+    `http://72.61.225.41:3008/api/get_user_by_category?category=${slug}&page=${page}`,
     {
       method: "GET",
       headers: { "Content-Type": "application/json" },

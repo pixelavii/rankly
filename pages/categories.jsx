@@ -21,7 +21,7 @@ export default function CategoriesPage({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/categories`, {
+  const res = await fetch(`http://72.61.225.41:3008/api/categories`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
