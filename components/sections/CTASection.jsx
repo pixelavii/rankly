@@ -3,7 +3,7 @@ import Button from "../common/Button";
 
 export default function CTASection() {
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-20">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-10 pt-10">
       <div className="rounded-xl2 bg-ink-900 text-white px-6 sm:px-10 py-12 sm:py-14 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
         <div>
           <h2 className="font-display text-2xl font-extrabold">Ready to take a higher spot?</h2>

@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function Layout({
   children,
-  title = "Rankly \u2014 Ranked Profile Listings",
+  title = "TopBidder \u2014 Ranked Profile Listings",
   user,
 }) {
   return (

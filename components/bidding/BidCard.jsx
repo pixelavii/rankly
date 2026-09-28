@@ -1,5 +1,4 @@
 import Avatar from "../common/Avatar";
-import Link from "next/link";
 
 export default function BidCard({ bidder, rank, categoryName }) {
   const isTop = rank === 1;
@@ -50,14 +49,9 @@ export default function BidCard({ bidder, rank, categoryName }) {
         <div className="flex items-center gap-2 mt-1.5 text-xs text-ink-500">
           <span className="font-medium text-ink-700">{categoryName}</span>
           <span className="hidden sm:inline">&middot;</span>
-          <Link
-            href={bidder.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline text-coral-300 hover:text-coral-700 font-medium"
-          >
+          <span className="inline text-coral-300 hover:text-coral-700 font-medium">
             {bidder.clicks ?? 0} {bidder.clicks <= 1 ? "click" : "clicks"}
-          </Link>
+          </span>
         </div>
       </div>
 

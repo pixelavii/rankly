@@ -3,8 +3,8 @@ import CategoryGrid from "../components/categories/CategoryGrid";
 
 export default function CategoriesPage({ data }) {
   return (
-    <Layout title="Categories — Rankly">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <Layout title="Categories — TopBidder">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         <div className="max-w-lg mb-8">
           <h1 className="font-display text-2xl font-extrabold text-ink-900">
             Categories
@@ -21,7 +21,7 @@ export default function CategoriesPage({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`https://rankly-zeta.vercel.app/api/categories`, {
+  const res = await fetch(`http://localhost:3000/api/categories`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });

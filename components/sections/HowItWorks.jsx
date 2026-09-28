@@ -23,7 +23,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-4">
       <div className="max-w-lg mb-10">
         <h2 className="font-display text-2xl font-extrabold text-ink-900">How Bidding Works</h2>
         <p className="text-sm text-ink-500 mt-2 leading-relaxed">

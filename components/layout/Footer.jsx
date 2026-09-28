@@ -20,7 +20,7 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ink-100 mt-20">
+    <footer className="border-t border-ink-100 mt-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-2">
@@ -35,7 +35,7 @@ export default function Footer() {
                   />
                 </svg>
               </span>
-              <span className="font-semibold text-ink-900">Rankly</span>
+              <span className="font-semibold text-ink-900">TopBidder</span>
             </div>
             <p className="text-sm text-ink-500 max-w-xs">
               A ranked listing platform where your bid amount determines your
@@ -65,10 +65,25 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-ink-100 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-sm text-ink-500">
-          <p>&copy; {new Date().getFullYear()} Rankly. All rights reserved.</p>
-          <p>
-            Rankings reflect bid amount only. There are no winners or losers.
-          </p>
+          <span className="text-center text-sm md:pl-0 pl-5 pr-5 pb-3">
+            Built by{" "}
+            <Link
+              className="font-semibold text-coral-600"
+              target="_blank"
+              href={"https://www.linkedin.com/in/avinash-chaurasia-398269248"}
+            >
+              @avinash-chaurasia
+            </Link>{" "}
+            &middot; Brought to you by{" "}
+            <Link
+              className="font-semibold text-coral-600"
+              target="_blank"
+              href={"https://www.xsnapster.store/"}
+            >
+              xsnapster.store
+            </Link>
+          </span>
+          <p className="text-center text-xs">&copy; {new Date().getFullYear()} TopBidder. All rights reserved.</p>
         </div>
       </div>
     </footer>

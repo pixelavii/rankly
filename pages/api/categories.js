@@ -2,7 +2,9 @@ import { supabase } from './utils/db'
 
 export default async function GetHighestBids (req, res) {
   if (req.method !== 'GET') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' })
+    return res
+      .status(405)
+      .json({ success: false, message: 'Method not allowed' })
   }
 
   try {
@@ -35,6 +37,8 @@ export default async function GetHighestBids (req, res) {
     })
   } catch (error) {
     console.error('get-highest-bids error:', error)
-    return res.status(500).json({ success: false, message: 'Unable to fetch highest bids' })
+    return res
+      .status(500)
+      .json({ success: false, message: 'Unable to fetch highest bids' })
   }
 }

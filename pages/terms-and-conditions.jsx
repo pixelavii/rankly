@@ -5,7 +5,7 @@ const LAST_UPDATED = "September 9, 2026";
 
 export default function TermsPage() {
   return (
-    <Layout title="Terms & Conditions — Rankly">
+    <Layout title="Terms & Conditions — TopBidder">
       <div className="max-w-2xl mx-auto px-8 py-10">
         <h1 className="font-display text-4xl font-extrabold text-ink-900 tracking-tight">
           Terms & Conditions
@@ -16,19 +16,19 @@ export default function TermsPage() {
 
         <Section title="1. Agreement to these terms">
           <p>
-            By submitting a profile, placing a bid, or otherwise using Rankly,
+            By submitting a profile, placing a bid, or otherwise using TopBidder,
             you agree to these Terms & Conditions. If you don't agree, please
             don't use the service.
           </p>
         </Section>
 
-        <Section title="2. What Rankly is">
+        <Section title="2. What TopBidder is">
           <p>
-            Rankly lets you submit a link to your public social media profile
+            TopBidder lets you submit a link to your public social media profile
             and place a monetary bid to hold the top-ranked spot in that
             profile's category (for example, Instagram or YouTube). The highest
             current bid in a category holds rank #1 until another bid exceeds
-            it. Ranking is determined solely by bid amount — Rankly makes no
+            it. Ranking is determined solely by bid amount — TopBidder makes no
             claim about the quality, popularity, or legitimacy of any ranked
             profile.
           </p>
@@ -43,7 +43,7 @@ export default function TermsPage() {
               prohibited.
             </li>
             <li>
-              You're responsible for ensuring your use of Rankly complies with
+              You're responsible for ensuring your use of TopBidder complies with
               the laws that apply to you.
             </li>
           </ul>
@@ -62,7 +62,7 @@ export default function TermsPage() {
             <li>
               Because ranking is granted immediately upon payment, bids are
               final and non-refundable, except where required by law or where
-              Rankly rejects your submission under Section 5 below.
+              TopBidder rejects your submission under Section 5 below.
             </li>
             <li>
               Being outbid doesn't entitle you to a refund — a bid pays for
@@ -74,10 +74,10 @@ export default function TermsPage() {
 
         <Section title="5. Submission review and removal">
           <p>
-            Rankly may review, reject, or remove any submission at its
+            TopBidder may review, reject, or remove any submission at its
             discretion, including profiles that are fake, impersonate someone
             else, link to unrelated or harmful content, or otherwise violate
-            these terms. If Rankly removes a submission for reasons other than
+            these terms. If TopBidder removes a submission for reasons other than
             your violation of these terms, we'll refund the associated bid.
           </p>
         </Section>
@@ -91,7 +91,7 @@ export default function TermsPage() {
               verification by technical or fraudulent means.
             </li>
             <li>
-              Use bots, scripts, or automated tools to interact with Rankly.
+              Use bots, scripts, or automated tools to interact with TopBidder.
             </li>
             <li>
               Initiate a chargeback or payment dispute for a bid that was
@@ -103,7 +103,7 @@ export default function TermsPage() {
 
         <Section title="7. No guarantee of outcomes">
           <p>
-            Rankly sells visibility on our leaderboard — a ranked position and
+            TopBidder sells visibility on our leaderboard — a ranked position and
             the resulting clicks that position may generate. We don't guarantee
             any specific number of clicks, followers, sales, or other outcomes
             from being ranked.
@@ -113,7 +113,7 @@ export default function TermsPage() {
         <Section title="8. Intellectual property">
           <p>
             You retain all rights to your own profile and its content. By
-            submitting a profile, you grant Rankly a license to display your
+            submitting a profile, you grant TopBidder a license to display your
             username, category, bid amount, and profile link on the leaderboard
             for as long as your submission remains active.
           </p>
@@ -121,8 +121,8 @@ export default function TermsPage() {
 
         <Section title="9. Disclaimers and limitation of liability">
           <p>
-            Rankly is provided "as is," without warranties of any kind. To the
-            fullest extent permitted by law, Rankly is not liable for indirect,
+            TopBidder is provided "as is," without warranties of any kind. To the
+            fullest extent permitted by law, TopBidder is not liable for indirect,
             incidental, or consequential damages arising from your use of the
             service, including losses related to being outbid or a submission
             being removed.
@@ -131,7 +131,7 @@ export default function TermsPage() {
 
         <Section title="10. Changes to these terms">
           <p>
-            We may update these terms from time to time. Continued use of Rankly
+            We may update these terms from time to time. Continued use of TopBidder
             after a change means you accept the updated terms. We'll update the
             date at the top of this page when changes are made.
           </p>
@@ -153,10 +153,10 @@ export default function TermsPage() {
           <p>
             Questions about these terms? Reach out at{" "}
             <a
-              href="mailto:support@rankly.example"
+              href="mailto:support@topbidder.in"
               className="text-rise-600 hover:text-rise-700 font-medium"
             >
-              support@rankly.example
+              support@topbidder.in
             </a>
             .
           </p>

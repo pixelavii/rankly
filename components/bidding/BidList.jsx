@@ -52,7 +52,6 @@ export default function BidList({ bidders, categoryName, Pagination }) {
         title="No bids yet"
         description="Be the first person to submit a bid in this category."
         actionLabel="Place First Bid"
-        onAction={onPlaceFirstBid}
       />
     );
   }
@@ -72,13 +71,6 @@ export default function BidList({ bidders, categoryName, Pagination }) {
                 rank={rank}
                 categoryName={categoryName}
               />
-              {/* {rank === 2 && bidders[2] && (
-                <ClaimBanner
-                  rank={2}
-                  amount={bidder.bidAmount}
-                  onClick={onPlaceBid}
-                />
-              )} */}
             </div>
           );
         })}

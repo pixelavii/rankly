@@ -3,7 +3,7 @@ import Layout from "../components/layout/Layout";
 
 export default function MyBidsPage() {
   return (
-    <Layout title="About — Rankly">
+    <Layout title="About — TopBidder">
       <Hero />
       <WhatIsRankly />
       <HowItWorks />
@@ -21,7 +21,7 @@ function Hero() {
         The leaderboard you can buy into
       </h1>
       <p className="mt-5 text-base sm:text-lg text-ink-500 leading-relaxed">
-        Rankly ranks profiles by how much people are willing to pay to be seen.
+        TopBidder ranks profiles by how much people are willing to pay to be seen.
         No followers to grind, no algorithm to guess at — just an open bid, and
         whoever's willing to pay the most holds rank #1.
       </p>
@@ -33,10 +33,10 @@ function WhatIsRankly() {
   return (
     <section className="max-w-3xl mx-auto px-8 py-10 border-t border-ink-100">
       <h2 className="font-display text-2xl font-bold text-ink-900">
-        What is Rankly
+        What is TopBidder
       </h2>
       <p className="mt-4 text-ink-700 leading-relaxed">
-        Every category on Rankly — Instagram, YouTube, X, and more — has one top
+        Every category on TopBidder — Instagram, YouTube, X, and more — has one top
         spot. Anyone can submit their profile and name a price to hold it. The
         current highest bid sits at rank #1, visible to everyone who visits that
         category, until another bid comes in higher.

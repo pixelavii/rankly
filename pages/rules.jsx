@@ -4,7 +4,7 @@ import CTASection from "../components/sections/CTASection";
 
 export default function HowItWorksPage() {
   return (
-    <Layout title="How It Works — Rankly">
+    <Layout title="How It Works — TopBidder">
       <div className="pt-6">
         <HowItWorks />
       </div>

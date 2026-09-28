@@ -5,7 +5,7 @@ const LAST_UPDATED = "September 9, 2026";
 
 export default function PrivacyPage() {
   return (
-    <Layout title="Privacy Policy — Rankly">
+    <Layout title="Privacy Policy — TopBidder">
       <div className="max-w-2xl mx-auto px-8 py-10">
         <h1 className="font-display text-4xl font-extrabold text-ink-900 tracking-tight">
           Privacy Policy
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           <p>
             Payments are processed by Razorpay, a third-party payment gateway.
             When you pay, your payment details are sent directly to Razorpay
-            under their own privacy and security practices. Rankly receives only
+            under their own privacy and security practices. TopBidder receives only
             confirmation that your payment succeeded and a transaction reference
             — never your full card or bank details.
           </p>
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="5. Data sharing">
-          <p>We share data only with the service providers that run Rankly:</p>
+          <p>We share data only with the service providers that run TopBidder:</p>
           <ul>
             <li>Razorpay, to process payments.</li>
             <li>
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
 
         <Section title="8. Children's privacy">
           <p>
-            Rankly is not intended for anyone under 18. We don't knowingly
+            TopBidder is not intended for anyone under 18. We don't knowingly
             collect data from minors. If you believe a minor has submitted
             information to us, contact us and we'll remove it.
           </p>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
         <Section title="9. Changes to this policy">
           <p>
             We may update this policy from time to time. We'll update the date
-            at the top of this page when we do, and continued use of Rankly
+            at the top of this page when we do, and continued use of TopBidder
             after a change means you accept the updated policy.
           </p>
         </Section>
@@ -119,10 +119,10 @@ export default function PrivacyPage() {
             Questions about this policy, or want to exercise your data rights?
             Reach out at{" "}
             <a
-              href="mailto:privacy@rankly.example"
+              href="mailto:privacy@topbidder.in"
               className="text-rise-600 hover:text-rise-700 font-medium"
             >
-              support@rankly.example
+              support@topbidder.in
             </a>
             .
           </p>

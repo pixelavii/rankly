@@ -27,7 +27,7 @@ export default function Header() {
               </svg>
             </span>
             <span className="font-display font-extrabold text-ink-900 tracking-tight">
-              Rankly
+              TopBidder
             </span>
             <span className="hidden lg:inline-flex items-center gap-1.5 ml-3 pl-3 border-l border-ink-100 text-xs text-ink-500">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -78,7 +78,7 @@ export default function Header() {
         <div className="flex items-center justify-center mt-3">
           <span className="lg:hidden inline-flex items-center gap-1.5 text-xs text-ink-500">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            62 online &middot; 471 submissions
+            64 online &middot; 2193 visitor today
           </span>
         </div>
       </div>

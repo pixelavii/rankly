@@ -14,7 +14,7 @@ export default function CategoryPage({ data }) {
 
   if (!category) {
     return (
-      <Layout user={data} title="Category — Rankly">
+      <Layout user={data} title="Category — TopBidder">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 text-center text-ink-500">
           {slug ? "Category not found." : ""}
         </div>
@@ -25,7 +25,7 @@ export default function CategoryPage({ data }) {
   const highestBid = data?.users[0]?.amount ?? 0;
 
   return (
-    <Layout title={`${category.name} — Rankly`}>
+    <Layout title={`${category.name} — TopBidder`}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-8">
         <CategoryHeader category={category} />
 
@@ -55,7 +55,7 @@ export async function getServerSideProps({ params, query, req }) {
   const { slug } = params;
   const page = parseInt(query.page || "1", 10);
   const res = await fetch(
-    `https://rankly-zeta.vercel.app/api/get_user_by_category?category=${slug}&page=${page}`,
+    `http://localhost:3000/api/get_user_by_category?category=${slug}&page=${page}`,
     {
       method: "GET",
       headers: { "Content-Type": "application/json" },

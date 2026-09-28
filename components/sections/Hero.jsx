@@ -29,39 +29,39 @@ export default function Hero({ categories }) {
 
         <div className="rounded-xl2 border border-ink-100 shadow-raised p-5 bg-white">
           <p className="text-xs font-medium text-ink-500 mb-3">
-            Instagram &middot; ranked by bid
+            Bids &middot; The Live Categories
           </p>
           <div className="space-y-2">
             {[
               {
                 rank: 1,
                 user: "Instagram",
-                bid: categories.Instagram.highestBid,
+                bid: categories?.Instagram?.highestBid,
               },
               {
                 rank: 2,
                 user: "Facebook",
-                bid: categories.Facebook.highestBid,
+                bid: categories?.Facebook?.highestBid,
               },
               {
                 rank: 3,
                 user: "LinkedIn",
-                bid: categories.LinkedIn.highestBid,
+                bid: categories?.LinkedIn?.highestBid,
               },
               {
                 rank: 4,
                 user: "X",
-                bid: categories.X.highestBid,
+                bid: categories?.X?.highestBid,
               },
               {
                 rank: 5,
                 user: "Reddit",
-                bid: categories.Reddit.highestBid,
+                bid: categories?.Reddit?.highestBid,
               },
               {
                 rank: 6,
                 user: "YouTube",
-                bid: categories.YouTube.highestBid,
+                bid: categories?.YouTube?.highestBid,
               },
             ].map((row) => (
               <Link
@@ -77,7 +77,7 @@ export default function Hero({ categories }) {
                   </span>
                 </div>
                 <span className="text-sm font-semibold text-ink-900">
-                  ₹{row.bid}
+                  ₹{row.bid || 0}
                 </span>
               </Link>
             ))}
